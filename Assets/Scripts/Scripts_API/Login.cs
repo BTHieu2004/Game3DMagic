@@ -1,0 +1,42 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Login : MonoBehaviour
+{
+    [Serializable]
+    public class RequestLoginData
+    {
+        public string email;
+        public string password;
+        public string twoFactorCode = "";
+        public string twoFactorRecoveryCode = "";
+        public RequestLoginData(string email, string password)
+        {
+            this.email = email;
+            this.password = password;
+        }
+    }
+    [Serializable]
+    public class ResponseLogin
+    {
+        public bool isSuccess;
+        public string notification;
+        public LoginUserData data;
+    }
+    [Serializable]
+    public class LoginUserData
+    {
+        public string token;
+        public User user;
+    }
+    public class  User
+    {
+        public string id;
+        public string name;
+        public string email;
+        public string avatar;
+        public int regionId;
+    }
+}
